@@ -1,0 +1,70 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width">
+  <title>Christmas drinking game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+
+<body>
+
+	<div class="start">
+		<div class="ken"></div>
+
+		<img src="title.gif" />
+    <div class="slot-machine">
+        <ul class="slot">
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+        </ul>
+        <input type="button" id="playFancy" value="Play">
+    </div>
+
+		<p class="css3-blink">Press the banana</p>
+	</div>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
+<script src="jquery.jSlots.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+
+  // fancy example
+  $('.slot-machine .slot').jSlots({
+      number : 3,
+      winnerNumber : 5,
+      spinner : '#playFancy',
+      easing : 'easeOutSine',
+      time : 7000,
+      loops : 6,
+
+      onStart : function() {
+        $('.slot').removeClass('winner');
+      },
+      onWin : function(winCount, winners, finalNumbers) {
+        $.each(winners, function() {
+            this.addClass('winner');
+        });
+      }
+  });
+
+	$(window).keypress(function(e) {
+	  if (e.charCode == 32) {
+	  	e.preventDefault();
+	    $('#playFancy').click();
+	  }
+	});
+
+</script>
+
+</body>
+</html>
