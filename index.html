@@ -11,9 +11,10 @@
 
 
 <body>
+  <audio src="win.mp3" id="win"></audio>
 
 	<div class="start">
-		<div class="ken"></div>
+		<div class="ken css3-spin"></div>
 
 		<img src="title.gif" />
     <div class="slot-machine">
@@ -54,6 +55,9 @@
         $.each(winners, function() {
             this.addClass('winner');
         });
+
+        $('#win')[0].play();
+
       }
   });
 
